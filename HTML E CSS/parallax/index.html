@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet" />
+    <title>Parallax</title>
+</head>
+<body>
+
+    <div class="logo">
+        <img src="css/imagens/logo.png" style="width: 200px; height: 200px;">>
+    </div>
+   
+    <div class="botoes">
+        <a href="pages/login.html">Login</a>
+        <a href="pages/cadastro.html">Cadastre-se</a>
+    </div>
+
+    <div class="caixa1">
+        <div class="conteudo-titulo">
+            <span class="titulo">Acampamento Crystal Lake</span>
+        </div>
+    </div>
+        
+    <div class="conteudo">
+        <h3>PROCURO AVENTUREIROS CORAJOSOS! </h3>
+        <p>Bem-vindos ao incrível ACAMPAMENTO CRYSTAL LAKE!</p>
+
+        <p>Você está pronto para a experiência mais eletrizante de sua vida? Prepare-se para emoções de arrepiar os cabelos e sustos que farão seu coração disparar!
+           Aqui, no Acampamento Crystal Lake, você poderá viver suas próprias histórias de terror! 
+           Sabe aquelas lendas sombrias sobre um assassino mascarado que ronda os bosques? Sim, estamos falando dele... JASON VOORHEES! 
+           Desafie seus instintos e teste sua coragem enquanto explora as trilhas sinistras e os lagos misteriosos!</p>
+
+        <p>Jason Voorhees, um dos icônicos assassinos do cinema, é frequentemente associado ao Acampamento Crystal Lake, onde sua mãe, Pamela Voorhees, 
+           cometeu uma série de assassinatos para se vingar da negligência que levou à morte de seu filho. Posteriormente, Jason se torna o principal 
+           antagonista da franquia, continuando os assassinatos no acampamento e em seus arredores.</p>
+    </div>
+
+    <div class="caixa2">
+        <div class="conteudo-titulo">
+            <span class="titulo">Paisagens lindas!</span>
+        </div>
+    </div>
+
+    <div class="conteudo">
+        <h3>O que você encontrará no Acampamento Crystal Lake:</h3>
+        <p>Cenários assustadoramente deslumbrantes - perfeito para fotos arrepiantes!<br>
+           Canoagem em lagos escuros e enigmáticos - apenas para os mais destemidos!<br>
+           Barracas assombradas para uma noite inesquecível de terror e gritos!<br>
+           Fogueiras assustadoras para contar histórias macabras!<br>
+           Jogos de sobrevivência e perseguições emocionantes - afie suas habilidades de escape!<br>
+        </p>
+            
+        <p>Mas atenção: 💀 NÃO garantimos a sua sobrevivência! 💀</p>
+
+    </div>
+
+    <div class="caixa3">
+        <div class="conteudo-titulo">
+            <span class="titulo">Sobrevivência é Exencial!</span>
+        </div>
+    </div>
+
+    <div class="conteudo">
+        <h4>O Acampamento Crystal Lake. É uma localização fictícia muito conhecida na franquia de filmes de terror "Friday the 13th" (Sexta-Feira 13), <br>
+            criada por Sean S. Cunningham. O Acampamento Crystal Lake é o cenário principal dos filmes e é conhecido como o local onde ocorreram os infames <br>
+            assassinatos de Jason Voorhees. Nos filmes, o Acampamento Crystal Lake é retratado como um acampamento de verão isolado, situado nas florestas de <br>
+            Nova Jersey, nos Estados Unidos. A localização é notória por sua história sangrenta e é considerada assombrada devido às tragédias e aos assassinatos <br>
+            brutais que ocorreram lá ao longo dos filmes.
+        </h4>
+
+    </div>
+
+    <div class="caixa4">
+        <div class="conteudo-titulo-red">
+            <span class="titulo">Você não vai ver a hora de sair correndo daqui!</span>
+        </div>
+    </div>
+
+    <div class="conteudo">
+        <h3>Até a proxima!</h3>
+    </div>
+
+    <div class="jason">
+        <img src="css/imagens/jason.png" />
+    </div>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            var botoes = document.querySelector('.botoes');
+            if (window.scrollY > 100) {
+                botoes.style.display = 'none';
+            } else {
+                botoes.style.display = 'block';
+            }
+        });
+
+        window.addEventListener('scroll', function() {
+            var botoes = document.querySelector('.logo');
+            if (window.scrollY > 100) {
+                botoes.style.display = 'none';
+            } else {
+                botoes.style.display = 'block';
+            }
+        });
+    </script>
+</main>
+</body>
+</html>
