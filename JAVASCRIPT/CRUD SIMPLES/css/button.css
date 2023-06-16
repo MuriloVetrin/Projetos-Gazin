@@ -2,15 +2,11 @@
     border-style: none;
     height: 40px;
     padding: 6px 12px;
-    background-color: black;
+    background-color: rgb(255, 255, 255);
     color: white;
     font-size: 1rem;
     cursor: pointer;
     transition: box-shadow .6s ease;
-}
-
-.button.blue{
-    background-color: #1FB6FF;
 }
 
 button.green{
@@ -38,7 +34,7 @@ button.red{
     }
     .button.mobile::before{
         content: "+";
-        color:black;
+        color:rgb(255, 255, 255);
         font-size:2rem;
         width:100%;
         height:100%;

@@ -8,11 +8,9 @@ const closeModal = () => {
     document.getElementById('modal').classList.remove('active')
 }
 
-
 const getLocalStorage = () => JSON.parse(localStorage.getItem('db_client')) ?? []
 const setLocalStorage = (dbClient) => localStorage.setItem("db_client", JSON.stringify(dbClient))
 
-// CRUD - create read update delete
 const deleteClient = (index) => {
     const dbClient = readClient()
     dbClient.splice(index, 1)
@@ -36,8 +34,6 @@ const createClient = (client) => {
 const isValidFields = () => {
     return document.getElementById('form').reportValidity()
 }
-
-//Interação com o layout
 
 const clearFields = () => {
     const fields = document.querySelectorAll('.modal-field')
@@ -129,7 +125,6 @@ const editDelete = (event) => {
 
 updateTable()
 
-// Eventos
 document.getElementById('cadastrarCliente')
     .addEventListener('click', openModal)
 
