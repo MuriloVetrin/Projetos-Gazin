@@ -6,7 +6,7 @@ $pagina = filter_input(INPUT_GET, "pagina", FILTER_SANITIZE_NUMBER_INT);
 if (!empty($pagina)) {
 
     //Calcular o inicio da vizualização
-    $qnt_result_pg = 10;
+    $qnt_result_pg = 2;
     $inicio = ($pagina * $qnt_result_pg) - $qnt_result_pg;
 
     $query_usuarios = "SELECT id, nome, email From usuarios ORDER BY id DESC LIMIT $inicio, $qnt_result_pg";
@@ -31,7 +31,7 @@ if (!empty($pagina)) {
                    <td>$id</td>
                    <td>$nome</td>
                    <td>$email</td>
-                   <td>Ações - $pagina</td>
+                   <td>Ações</td>
                </tr>";
     }
 
@@ -48,17 +48,28 @@ if (!empty($pagina)) {
     //Quantidade de pagina
     $quantidade_pg = ceil($row_pq['num_result'] / $qnt_result_pg);
 
-            $dados .= '<nav aria-label="Page navigation example"><ul class="pagination justify-content-center">';
-            //erro aqui minuto 25:25  video 2
-            $dados .= "<li class='page-item disabled'><a class='page-link' href='#' onclick='listarUsuarios($quantidade_pg)'>Anterior</a></li>";
+    $max_links = 2;
 
-            $dados .= '<li class="page-item"><a class="page-link" href="#">1</a></li>';
-        
-            $dados .= "<li class='page-item'><a class='page-link' href='#'>$pagina</a></li>";
-        
-            $dados .= '<li class="page-item"><a class="page-link" href="#">3</a></li>';
-            $dados .= "<li class='page-item'><a class='page-link' href='#' onclick='listarUsuarios($quantidade_pg)'>Próximo</a></li>";              
-            $dados .=  '</ul></nav>';
+    $dados .= '<nav aria-label="Page navigation example"><ul class="pagination justify-content-center">';
+
+    $dados .= "<li class='page-item'><a href='#' class='page-link' onclick='listarUsuarios(1)'>Primeiro</a></li>";
+
+    for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
+        if ($pag_ant >= 1) {
+            $dados .= "<li class='page-item'><a class='page-link' href='#' onclick='listarUsuarios($pag_ant)'>$pag_ant</a></li>";
+        }
+    }
+
+    $dados .= "<li class='page-item active'><a class='page-link' href='#'>$pagina</a></li>";
+
+    for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
+        if ($pag_dep <= $quantidade_pg) {
+            $dados .= "<li class='page-item'><a class='page-link' href='#' onclick='listarUsuarios($pag_dep)'>$pag_dep</a></li>";
+        }
+    }
+
+    $dados .= "<li class='page-item'><a class='page-link' href='#' onclick='listarUsuarios($quantidade_pg)'>Último</a></li>";
+    $dados .=  '</ul></nav>';
 
     echo $dados;
 } else {
