@@ -6,7 +6,7 @@ $pagina = filter_input(INPUT_GET, "pagina", FILTER_SANITIZE_NUMBER_INT);
 if (!empty($pagina)) {
 
     //Calcular o inicio da vizualização
-    $qnt_result_pg = 2;
+    $qnt_result_pg = 5;
     $inicio = ($pagina * $qnt_result_pg) - $qnt_result_pg;
 
     $query_usuarios = "SELECT id, nome, email From usuarios ORDER BY id DESC LIMIT $inicio, $qnt_result_pg";
