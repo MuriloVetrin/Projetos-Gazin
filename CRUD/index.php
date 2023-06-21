@@ -49,17 +49,41 @@ include_once "conexao.php"
                         <span id="msgAlertaErroCad"></span>
                         <div class="mb-3">
                             <label for="nome" class="col-form-label">Nome:</label>
-                            <input type="text" name="nome" class="form-control" id="nome" placeholder="Digite seu nome aqui" >
+                            <input type="text" name="nome" class="form-control" id="nome" placeholder="Digite seu nome aqui">
                         </div>
                         <div class="mb-3">
                             <label for="email" class="col-form-label">E-mail:</label>
-                            <input type="text" name="email" class="form-control" id="email" placeholder="Digite seu melhor email aqui" >
+                            <input type="text" name="email" class="form-control" id="email" placeholder="Digite seu melhor email aqui">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
-                            <input type="submit" class="btn btn-outline-primary" id="cad-usuario-btn" value="Salvar"/>
+                            <input type="submit" class="btn btn-outline-primary" id="cad-usuario-btn" value="Salvar" />
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="visUsuarioModal" tabindex="-1" aria-labelledby="visUsuarioModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="visUsuarioModalLabel">Detalhes do Usuário</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span id="msgAlertaErroVis"></span>
+                    <dl class="row">
+                        <dt class="col-sm-3">ID:</dt>
+                        <dd class="col-sm-9"><span id="idUsuario"></span></dd>
+
+                        <dt class="col-sm-3">Nome:</dt>
+                        <dd class="col-sm-9"><span id="nomeUsuario"></span></dd>
+                        
+                        <dt class="col-sm-3">E-mail:</dt>
+                        <dd class="col-sm-9"><span id="emailUsuario"></span></dd>
+                    </dl>
                 </div>
             </div>
         </div>

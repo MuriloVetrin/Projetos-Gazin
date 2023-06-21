@@ -31,7 +31,9 @@ if (!empty($pagina)) {
                    <td>$id</td>
                    <td>$nome</td>
                    <td>$email</td>
-                   <td>Ações</td>
+                   <td>
+                      <button id='$id' class='btn btn-outline-primary btn-sm' onClick='visUsuario($id)'> Visualizar </button>
+                   </td>
                </tr>";
     }
 
