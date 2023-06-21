@@ -48,11 +48,11 @@ include_once "conexao.php"
                     <form id="cad-usuario-form">
                         <span id="msgAlertaErroCad"></span>
                         <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Nome:</label>
-                            <input type="text" name="nome" class="form-control" id="name" placeholder="Digite seu nome aqui" >
+                            <label for="nome" class="col-form-label">Nome:</label>
+                            <input type="text" name="nome" class="form-control" id="nome" placeholder="Digite seu nome aqui" >
                         </div>
                         <div class="mb-3">
-                            <label for="recipient-email" class="col-form-label">E-mail:</label>
+                            <label for="email" class="col-form-label">E-mail:</label>
                             <input type="text" name="email" class="form-control" id="email" placeholder="Digite seu melhor email aqui" >
                         </div>
                         <div class="modal-footer">
