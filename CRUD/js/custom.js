@@ -67,3 +67,20 @@ async function visUsuario(id) {
     }
 
 }
+
+async function editUsuarioDados(id) {
+    const dados = await fetch('visualizar.php?id=' + id);
+    const resposta = await dados.json();
+    console.log(resposta);
+
+    if(resposta['erro']){
+        msgAlerta.innerHTML = resposta['msg'];
+    }else{
+        const editModal = new bootstrap.Modal(document.getElementById("editUsuarioModal"));
+        editModal.show();
+        document.getElementById("editid").value = resposta['dados'].id;
+        document.getElementById("editnome").value = resposta['dados'].nome;
+        document.getElementById("editemail").value = resposta['dados'].email;
+        
+    }
+}

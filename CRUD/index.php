@@ -89,6 +89,34 @@ include_once "conexao.php"
         </div>
     </div>
 
+    <div class="modal fade" id="editUsuarioModal" tabindex="-1" aria-labelledby="editUsuarioModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="editUsuarioModalLabel">Editar Usuário</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="edit-usuario-form">
+                        <span id="msgAlertaErroCad"></span>
+                        <input type="hidden" name="id" id="editid">
+                        <div class="mb-3">
+                            <label for="nome" class="col-form-label">Nome:</label>
+                            <input type="text" name="nome" class="form-control" id="editnome" placeholder="Digite seu nome aqui">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="col-form-label">E-mail:</label>
+                            <input type="text" name="email" class="form-control" id="editemail" placeholder="Digite seu melhor email aqui">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
+                            <input type="submit" class="btn btn-outline-warning" id="edit-usuario-btn" value="Salvar" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="js/custom.js"></script>
 
