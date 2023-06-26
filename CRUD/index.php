@@ -98,7 +98,7 @@ include_once "conexao.php"
                 </div>
                 <div class="modal-body">
                     <form id="edit-usuario-form">
-                        <span id="msgAlertaErroCad"></span>
+                        <span id="msgAlertaErroEdit"></span>
                         <input type="hidden" name="id" id="editid">
                         <div class="mb-3">
                             <label for="nome" class="col-form-label">Nome:</label>
