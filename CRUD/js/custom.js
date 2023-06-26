@@ -99,22 +99,41 @@ editForm.addEventListener("submit", async (e) => {
     for (var dadosFormEdit of dadosForm.entries()){
          console.log(dadosFormEdit [0] + " - " + dadosFormEdit [1]);
         }*/
-    
+
 
     const dados = await fetch("editar.php", {
         method: "POST",
-        body:dadosForm
+        body: dadosForm
     });
 
     const resposta = await dados.json();
     //console.log(resposta);
 
-    if(resposta['erro']){
+    if (resposta['erro']) {
         msgAlertaErroEdit.innerHTML = resposta['msg'];
-    }else{
+    } else {
         msgAlertaErroEdit.innerHTML = resposta['msg'];
         listarUsuarios(1);
     }
 
     document.getElementById("edit-usuario-btn").value = "Salvar";
 });
+
+async function apagarUsuarioDados(id) {
+
+    var confirmar = confirm("Tem certeza que deseja excluir esse usuário?");
+
+    if (confirmar == true) {
+        const dados = await fetch('apagar.php?id=' + id);
+
+        const resposta = await dados.json()
+        if (resposta['erro']) {
+            msgAlerta.innerHTML = resposta['msg'];
+        } else {
+            msgAlerta.innerHTML = resposta['msg'];
+            listarUsuarios(1);
+
+        }
+    }
+
+}

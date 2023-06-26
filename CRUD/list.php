@@ -35,7 +35,9 @@ if (!empty($pagina)) {
                       <button id='$id' class='btn btn-outline-primary btn-sm' onClick='visUsuario($id)'>Visualizar</button>
 
                       <button id='$id' class='btn btn-outline-warning btn-sm' onClick='editUsuarioDados($id)'>Editar</button>
-                   </td>
+                   
+                      <button id='$id' class='btn btn-outline-danger btn-sm' onClick='apagarUsuarioDados($id)'>Excluir</button>
+                    </td>
                </tr>";
     }
 
