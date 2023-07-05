@@ -17,6 +17,7 @@
       <img class="imagem" src="imgs/6.png">
       <img class="imagem" src="imgs/7.png">
       <img class="imagem" src="imgs/8.png">
+      <img class="imagem" src="imgs/9.png">
    </ul>
 </body>
 
