@@ -40,9 +40,8 @@ include_once './conexao.php';
 
             extract($row_usuario);
 
-            echo "ID: $id <br>";
-            echo "Nome: $nome <br>";
-            echo "E-mail: $email <br>";
+            echo "$nome <br><br>";
+            echo "<a href='visualizar.php?id=$id'>Visualizar</a><br>";
             echo "<hr>";
         }
 
@@ -54,7 +53,7 @@ include_once './conexao.php';
         $qnt_pagina = ceil($row_qnt_registros['num_result'] / $limite_resultado);
 
         $maximo_link = 2;
-        
+
         echo "<a href='index.php?page=1'>Primeira</a>";
 
         for ($pagina_anterior = $pagina - $maximo_link; $pagina_anterior <= $pagina - 1; $pagina_anterior++) {
