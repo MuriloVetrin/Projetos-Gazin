@@ -19,7 +19,7 @@ include_once './conexao.php';
 
     <?php
 
-    if(isset($_SESSION['msg'])) {
+    if (isset($_SESSION['msg'])) {
         echo $_SESSION['msg'];
         unset($_SESSION['msg']);
     }
@@ -41,7 +41,8 @@ include_once './conexao.php';
             extract($row_usuario);
 
             echo "$nome <br><br>";
-            echo "<a href='visualizar.php?id=$id'>Visualizar</a><br>";
+            echo "<a href='visualizar.php?id=$id'>Visualizar </a>";
+            echo "<a href='editar.php?id=$id'>Editar </a><br>";
             echo "<hr>";
         }
 
@@ -54,23 +55,23 @@ include_once './conexao.php';
 
         $maximo_link = 2;
 
-        echo "<a href='index.php?page=1'>Primeira</a>";
+        echo "<a href='index.php?page=1'>Primeira </a>";
 
         for ($pagina_anterior = $pagina - $maximo_link; $pagina_anterior <= $pagina - 1; $pagina_anterior++) {
             if ($pagina_anterior >= 1) {
-                echo "<a href='index.php?page=$pagina_anterior'>$pagina_anterior</a> ";
+                echo "<a href='index.php?page=$pagina_anterior'> $pagina_anterior </a> ";
             }
         }
 
         echo "$pagina";
 
         for ($proxima_pagina = $pagina + 1; $proxima_pagina <= $pagina + $maximo_link; $proxima_pagina++) {
-            if($proxima_pagina <= $qnt_pagina) {
-                echo "<a href='index.php?page=$proxima_pagina'>$proxima_pagina</a>";
+            if ($proxima_pagina <= $qnt_pagina) {
+                echo "<a href='index.php?page=$proxima_pagina'> $proxima_pagina </a>";
             }
         }
 
-        echo "<a href='index.php?page=$qnt_pagina'>Última</a>";
+        echo "<a href='index.php?page=$qnt_pagina'> Última </a>";
     } else {
         echo "<p style='color: #f00; '>Erro: Nenhum usuário encontrado!</p>";
     }
