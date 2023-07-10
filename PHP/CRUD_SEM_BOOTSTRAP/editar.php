@@ -59,13 +59,14 @@ if (($result_usuario) and ($result_usuario->rowCount() != 0)) {
         if (!$empty_input) {
             $query_up_usuario = "UPDATE usuarios SET nome=:nome, email=:email  WHERE id=:id";
             $edit_usuario = $conn->prepare($query_up_usuario);
-            $edit_usuario->bindParam(' :nome', $dados['nome'], PDO::PARAM_STR);
-            $edit_usuario->bindParam(' :email', $dados['email'], PDO::PARAM_STR);
-            $edit_usuario->bindParam(' :id', $id, PDO::PARAM_INT);
-            if($edit_usuario->execute()) {
+
+            $edit_usuario->bindParam(':nome', $dados['nome'], PDO::PARAM_STR);
+            $edit_usuario->bindParam(':email', $dados['email'], PDO::PARAM_STR);
+            $edit_usuario->bindParam(':id', $id, PDO::PARAM_INT);
+            if ($edit_usuario->execute()) {
                 $_SESSION['msg'] = "<p style='color: green;'>Usuario editado com sucesso!</p>";
                 header("Location: index.php");
-            }else{
+            } else {
                 echo "<p style='color: #f00;'>Erro: Usuario não editado com sucesso!</p>";
             }
         }
@@ -89,7 +90,7 @@ if (($result_usuario) and ($result_usuario->rowCount() != 0)) {
                                                                                             } elseif (isset($row_usuario['email'])) {
                                                                                                 echo $row_usuario['email'];
                                                                                             } ?>" required><br><br>
-        <input type="submit" value="Salvar" nome="EditUsuario">
+        <input type="submit" value="Salvar" name="EditUsuario">
     </form>
 
 </body>
