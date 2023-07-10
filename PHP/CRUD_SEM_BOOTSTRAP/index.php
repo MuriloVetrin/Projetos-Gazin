@@ -41,8 +41,9 @@ include_once './conexao.php';
             extract($row_usuario);
 
             echo "$nome <br><br>";
-            echo "<a href='visualizar.php?id=$id'>Visualizar </a>";
-            echo "<a href='editar.php?id=$id'>Editar </a><br>";
+            echo "<a href='visualizar.php?id=$id'>VISUALIZAR </a><br>";
+            echo "<a href='editar.php?id=$id'>EDITAR </a><br>";
+            echo "<a href='apagar.php?id=$id'>APAGAR </a><br>";
             echo "<hr>";
         }
 
