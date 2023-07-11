@@ -4,7 +4,7 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Aula 05</title>
+   <title>Aula 06</title>
    <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -18,6 +18,10 @@
       <img class="imagem" src="imgs/7.png">
       <img class="imagem" src="imgs/8.png">
       <img class="imagem" src="imgs/9.png">
+      <img class="imagem" src="imgs/10.png">
+      <img class="imagem" src="imgs/11.png">
+      <img class="imagem" src="imgs/12.png">
+      <img class="imagem" src="imgs/13.png">
    </ul>
 </body>
 
