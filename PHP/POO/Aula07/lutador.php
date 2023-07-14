@@ -85,6 +85,13 @@ class Lutador {
 
     function setPeso($peso) {
         $this->peso = $peso;
+        $this->setCategoria();
+    }
+
+    function setCategoria() {
+        if ($this->peso < 52.2) {
+            $this
+        }
     }
 
     function setVitorias($vitorias) {
