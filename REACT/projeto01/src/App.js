@@ -13,7 +13,7 @@ import List from './components/List';
 function App() {
   return (
     <div className="App">
-      <h1>Renderização Condicional</h1>
+      <h1>Renderização de Listas</h1>
       <Condicional/>
 
       {/*
