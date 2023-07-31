@@ -1,6 +1,6 @@
 # Este repositório de React/Node contem alguns projetos particulares de aprendizado:
 
-### Lista de Afazeres: 
+### lista_de_afazeres: 
 - Um projeto to do list
 
 #
