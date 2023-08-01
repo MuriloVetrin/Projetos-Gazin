@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Todo from './components/Todo';
 import TodoForm from './components/TodoForm';
 import Search from './components/Search';
@@ -7,13 +7,38 @@ import Filter from './components/Filter';
 import './App.css';
 
 function App() {
-  const [todos, setTodos] = useState([
-   
-  ]);
+  const initialTodos = [
+    {
+      id: 1,
+      text: 'Criar funcionalidade x no sistema',
+      category: '(Trabalho)',
+      isCompleted: false,
+    },
+    {
+      id: 2,
+      text: 'Ir para a academia',
+      category: '(Pessoal)',
+      isCompleted: false,
+    },
+    {
+      id: 3,
+      text: 'Estudar react',
+      category: '(Estudos)',
+      isCompleted: false,
+    },
+  ];
+
+  const [todos, setTodos] = useState(
+    () => JSON.parse(localStorage.getItem('todos')) || initialTodos
+  );
 
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All");
-  const [sort, setSort] = useState("Asc"); // Adicionado estado sort
+  const [sort, setSort] = useState("Asc");
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   const addTodo = (text, category) => {
     const newTodos = [
@@ -25,16 +50,12 @@ function App() {
         isCompleted: false,
       },
     ];
-
     setTodos(newTodos);
   };
 
   const removeTodo = (id) => {
-    const newTodos = [...todos]
-    const filteredTodos = newTodos.filter(todo =>
-      todo.id !== id ? todo : null
-    );
-    setTodos(filteredTodos);
+    const newTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(newTodos);
   };
 
   const completeTodo = (id) => {
@@ -48,7 +69,7 @@ function App() {
     <div className="app">
       <h1>Lista de Tarefas</h1>
       <Search search={search} setSearch={setSearch} />
-      <Filter filter={filter} setFilter={setFilter} /> 
+      <Filter filter={filter} setFilter={setFilter} setSort={setSort} />
       <div className="todo-list">
         {todos
           .filter((todo) =>
@@ -61,7 +82,11 @@ function App() {
           .filter((todo) =>
             todo.text.toLowerCase().includes(search.toLowerCase())
           )
-
+          .sort((a, b) =>
+            sort === "Asc"
+              ? a.text.localeCompare(b.text)
+              : b.text.localeCompare(a.text)
+          )
           .map((todo) => (
             <Todo
               key={todo.id}
