@@ -4,6 +4,8 @@ body {
   padding: 30px;
   color: #333;
   background-image: url("./img/bk.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .app {
@@ -81,4 +83,20 @@ input, select {
   border: 1px solid #DDD;
   border-radius: 3px;
   width: 100%;
+}
+
+.filter, .search {
+  border-bottom: 1px solid #555;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.filter-options {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.filter-options div {
+  flex: 1 1 0;
 }
