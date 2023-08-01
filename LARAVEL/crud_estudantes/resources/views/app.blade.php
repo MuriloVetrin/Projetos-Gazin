@@ -11,7 +11,7 @@
 <body>
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Atividade 2</a>
+            <a class="navbar-brand" href="#">Uni Gazin</a>
         </div>
     </nav>
     <div class="container">
