@@ -1,10 +1,17 @@
-import { Router, Request, Response } from 'express';
+import { Router } from 'express';
+
+import { CreateUserController } from './controllers/user/CreateUserController'
 
 const router = Router();
 
-router.get('/teste', (req: Request, res: Response) => {
-    return res.json({ nome: 'Pizzaria'});
-    //throw new Error('Erro ao fazer esse requisição')
-})
+/*
+   O cara bate nas nossas rota /users e chama o0 nosso controller 
+   
+   O controller pega os dados do body -> executa o serviço
+   
+   E esse execute vai devolver na variavel user o retorno que voce vai devolver pro usuario
+ */
+
+router.post('/users', new CreateUserController().handle)
 
 export { router };
