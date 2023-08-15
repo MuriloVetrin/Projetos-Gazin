@@ -1,7 +1,7 @@
 # Este repositório de React/Node contem alguns projetos particulares de aprendizado:
 
 ### CRUD_REACT_NODE: 
-- O crud é bem simples, no entanto estou tendo erros na hora de fazer a conexão com o banco mysql
+- O crud é bem simples, fullstack javascript
 
 #
 
