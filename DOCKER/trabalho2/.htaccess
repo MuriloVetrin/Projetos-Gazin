@@ -1,1 +1,1 @@
-DirectoryIndex resources/views/app.blade.php
+DirectoryIndex routes/web.php
