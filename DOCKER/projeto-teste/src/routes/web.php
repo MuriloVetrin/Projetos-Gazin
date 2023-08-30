@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\EstudanteController;
-use App\Http\Controllers\SalaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () { return redirect('/estudantes'); });
-Route::resource('/estudantes', EstudanteController::class);
-Route::resource('/salas', SalaController::class);
+Route::get('/', function () {
+    return view('welcome');
+});
