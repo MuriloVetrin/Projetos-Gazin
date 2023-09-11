@@ -1,0 +1,3 @@
+[submodule "LARAVEL/teste-docker/teste"]
+	path = LARAVEL/teste-docker/teste
+	url = https://github.com/Laradock/laradock.git
