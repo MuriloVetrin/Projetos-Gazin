@@ -1,0 +1,3 @@
+[submodule "DOCKER/teste-docker/laradock"]
+	path = DOCKER/teste-docker/laradock
+	url = https://github.com/Laradock/laradock.git
