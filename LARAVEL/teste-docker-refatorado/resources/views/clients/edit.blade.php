@@ -18,11 +18,11 @@
         <div class="mb-3">
             <label for="cpf" class="form-label">CPF</label>
             <input type="text" name="cpf" id="cpf" placeholder="Digite o seu CPF"
-                value="{{ $estudantes->cpf }}" class="form-control" required>
+                value="{{ $client->cpf }}" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="observacao" class="form-label">Observação</label>
-            <textarea name="observacao" id="observacao" placeholder="Digite o observação" cols="30" rows="10"
+            <textarea name="observacao" id="observacao" placeholder="Digite a observação" cols="30" rows="10"
                 class="form-control" required>{{ $client->observacao }}</textarea>
         </div>
         <button class="btn btn-success w-100" type="submit">Enviar</button>

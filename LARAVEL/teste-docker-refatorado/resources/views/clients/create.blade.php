@@ -4,6 +4,18 @@
 
     <h1>Novo Cliente</h1>
 
+    @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <form action="{{ route('clients.store') }}" method="POST">
         @csrf
         <div class="mb-3">
@@ -20,7 +32,7 @@
         </div>
         <div class="mb-3">
             <label for="observacao" class="form-label">Observação</label>
-            <textarea name="observacao" id="observacao" placeholder="Digite o observação" cols="30" rows="10"
+            <textarea name="observacao" id="observacao" placeholder="Digite a observação" cols="30" rows="10"
                 class="form-control" required></textarea>
         </div>
         <button class="btn btn-success w-100" type="submit">Enviar</button>

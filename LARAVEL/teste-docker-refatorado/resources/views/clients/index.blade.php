@@ -21,7 +21,7 @@
                 <a href="{{route('clients.show', $client)}}">{{$client->nome}}</a>
             </th>
             <th scope="row">{{$client->endereco}}</th>
-            <th scope="row">{{ substr($estudantes->cpf, 0, 3) . '.' . substr($client->cpf, 3, 3) . '.' . substr($client->cpf, 6, 3) . '-' . substr($client->cpf, 9, 2) }}</th>
+            <th scope="row">{{ substr($client->cpf, 0, 3) . '.' . substr($client->cpf, 3, 3) . '.' . substr($client->cpf, 6, 3) . '-' . substr($client->cpf, 9, 2) }}</th>
             <th>
             
                 <a class="btn btn-primary" href="{{route('clients.edit', $client)}}">Editar</a>

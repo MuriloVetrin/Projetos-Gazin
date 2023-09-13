@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use Illuminate\Database\QueryException;
+
 
 class ClientController extends Controller
 {
@@ -38,9 +41,25 @@ class ClientController extends Controller
 
     public function store(Request $req)
     {
-        $dados = $req->except('_token'); // except => remolve o token para poder gravar só os dados que importam para nós
-        Client::create($dados);
-        return redirect('/clients');
+        try {
+            $dados = $req->validate([
+                'nome' => 'required',
+                'endereco' => 'required',
+                'observacao' => 'nullable',
+                'cpf' => [
+                    'required',
+                    'digits:11',
+                    Rule::unique('clients', 'cpf'),
+                ],
+            ]);
+
+            Client::create($dados);
+            return redirect('/clients')->with('success', 'Cliente cadastrado com sucesso!');
+        } catch (QueryException $e) {
+            if ($e->errorInfo[1] == 1062) {
+                return back()->with('error', 'Cliente já cadastrado!');
+            }
+        }
     }
 
     public function edit(int $id) // edit mostra o formulario de editar novo cliente => @param integer $id e o @return View
@@ -51,13 +70,27 @@ class ClientController extends Controller
 
     public function update(int $id, Request $req)  // update realiza a edição dos dados de um cliente => @param integer $id @param Request @request @return RedrectResponse
     {
-        $client = Client::find($id);
-        $client->update([
-            'nome' => $req->nome,
-            'endereco' => $req->endereco,
-            'observacao' => $req->observacao
-        ]);
-        return redirect('/clients');
+        try {
+            $dados = $req->validate([
+                'nome' => 'required',
+                'endereco' => 'required',
+                'observacao' => 'nullable',
+                'cpf' => [
+                    'required',
+                    'digits:11',
+                    Rule::unique('clients', 'cpf')->ignore($id),
+                ],
+            ]);
+
+            $client = Client::find($id);
+            $client->update($dados);
+
+            return redirect('/clients')->with('success', 'Cliente atualizado com sucesso!');
+        } catch (QueryException $e) {
+            if ($e->errorInfo[1] == 1062) {
+                return back()->with('error', 'Cliente já cadastrado!');
+            }
+        }
     }
 
     public function destroy(int $id)  // destroy exclui o cliente => @param integer $id @return RedirecResponse

@@ -11,6 +11,7 @@
         <p class="card-text"><strong>ID: </strong>{{$client->id}}</p>
         <p class="card-text"><strong>Nome: </strong>{{$client->nome}}</p>
         <p class="card-text"><strong>Endereço: </strong>{{$client->endereco}}</p>
+        <p class="card-text"><strong>CPF: </strong>{{$client->cpf}}</p>
         <p class="card-text"><strong>Observação: </strong>{{$client->observacao}}</p>
         <br>
         <a href="{{route('clients.index')}}" class="btn btn-success">Voltar á lista de clientes</a>
