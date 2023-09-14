@@ -5,20 +5,25 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
+
         env_file:
             - .env
+
         restart: unless-stopped
+
         working_dir: /var/www/
+
         volumes:
             - ./:/var/www
-        networks:
-          - laravel
-    nginx:
 
+        networks:
+            - laravel
+
+    nginx:
         image: nginx:alpine
         restart: unless-stopped
         ports:
-            - "8077:80"
+            - "8989:80"
         volumes:
             - ./:/var/www
             - ./docker/nginx/:/etc/nginx/conf.d/
@@ -34,7 +39,7 @@ services:
         volumes:
             - ./.docker/mysql/dbdata:/var/lib/mysql
         ports:
-            - "80:3306"
+            - "3388:3306"
         networks:
             - laravel
 networks:

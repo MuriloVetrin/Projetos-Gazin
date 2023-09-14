@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Database\QueryException;
@@ -15,7 +16,7 @@ class ClientController extends Controller
 
     public function index()
     {
-
+        print_r('to aq1');
         $clients = Client::get();
 
         return view('clients.index', ['clients' => $clients]);
@@ -23,6 +24,7 @@ class ClientController extends Controller
 
     public function show(int $id)
     {
+        print_r('to aq2');
 
         $client = Client::find($id);
         return view('clients.show', [
@@ -34,15 +36,19 @@ class ClientController extends Controller
 
     public function create()
     {
+        print_r('to aq3');
+
         return view('clients.create');
     }
 
     //cria um novo cliente => @param Request @return Request
 
-    public function store(Request $req)
+    public function store(Request $request)
     {
         try {
-            $dados = $req->validate([
+            
+            
+            $dados = $request->validate([
                 'nome' => 'required',
                 'endereco' => 'required',
                 'observacao' => 'nullable',
@@ -52,13 +58,9 @@ class ClientController extends Controller
                     Rule::unique('clients', 'cpf'),
                 ],
             ]);
-
             Client::create($dados);
-            return redirect('/clients')->with('success', 'Cliente cadastrado com sucesso!');
-        } catch (QueryException $e) {
-            if ($e->errorInfo[1] == 1062) {
-                return back()->with('error', 'Cliente já cadastrado!');
-            }
+        } catch (Exception $e) {
+            return back()->with('error', 'Cliente já cadastrado!');
         }
     }
 

@@ -3,6 +3,11 @@
 @section('content')
 
     <h1>Novo Cliente</h1>
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 
     @if(session('error'))
         <div class="alert alert-danger">
@@ -10,11 +15,6 @@
         </div>
     @endif
 
-    @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
 
     <form action="{{ route('clients.store') }}" method="POST">
         @csrf
