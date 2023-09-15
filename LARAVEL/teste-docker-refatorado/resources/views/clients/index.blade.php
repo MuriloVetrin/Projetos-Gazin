@@ -2,6 +2,13 @@
 @section('title','Lista de clientes')
 
 @section('content')
+
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
 <h1>Lista de Clients</h1>
 <table class="table">
     <thead>

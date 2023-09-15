@@ -16,7 +16,7 @@ class ClientController extends Controller
 
     public function index()
     {
-        print_r('to aq1');
+        //print_r('to aq1');
         $clients = Client::get();
 
         return view('clients.index', ['clients' => $clients]);
@@ -36,7 +36,7 @@ class ClientController extends Controller
 
     public function create()
     {
-        print_r('to aq3');
+        //print_r('to aq3');
 
         return view('clients.create');
     }
@@ -46,8 +46,8 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         try {
-            
-            
+
+
             $dados = $request->validate([
                 'nome' => 'required',
                 'endereco' => 'required',
@@ -58,7 +58,8 @@ class ClientController extends Controller
                     Rule::unique('clients', 'cpf'),
                 ],
             ]);
-            Client::create($dados);
+            $client = Client::create($dados);
+            return redirect('/clients')->with('success', 'Cliente cadastrado com sucesso!');
         } catch (Exception $e) {
             return back()->with('error', 'Cliente já cadastrado!');
         }
@@ -97,8 +98,8 @@ class ClientController extends Controller
 
     public function destroy(int $id)  // destroy exclui o cliente => @param integer $id @return RedirecResponse
     {
-       $client = Client::find($id);
-       $client->delete();
-       return redirect('/clients');
+        $client = Client::find($id);
+        $client->delete();
+        return redirect('/clients');
     }
 }
