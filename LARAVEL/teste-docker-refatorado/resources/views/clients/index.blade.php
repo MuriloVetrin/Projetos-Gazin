@@ -30,32 +30,29 @@
             <th scope="row">{{$client->endereco}}</th>
             <th scope="row">{{ substr($client->cpf, 0, 3) . '.' . substr($client->cpf, 3, 3) . '.' . substr($client->cpf, 6, 3) . '-' . substr($client->cpf, 9, 2) }}</th>
             <th>
-            
                 <a class="btn btn-primary" href="{{route('clients.edit', $client)}}">Editar</a>
 
-            <form action="{{route('clients.destroy', $client)}}"
-            method="POST"
-            >
-            @method('DELETE')
-            @csrf
+                <form action="{{route('clients.destroy', $client)}}" method="POST">
+                    @method('DELETE')
+                    @csrf
 
-            <button  
-
-              class="btn btn-danger"
-              type="submit"
-              onclick="return confirm('Tem certeza que quer apagar?')" 
-              > 
-              
-              APAGAR
-
-            </button>
-             </form>
+                    <button class="btn btn-danger" type="submit" onclick="return confirm('Tem certeza que quer apagar?')">APAGAR</button>
+                </form>
             </th>
-           
         </tr>
-
         @endforeach
     </tbody>
 </table>
 <a class="btn btn-success" href="{{ route('clients.create') }}">Novo Cliente</a>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+       
+        $(document).on('click', function () {
+          
+            $('.alert-success').fadeOut('fast');
+        });
+    });
+</script>
 @endsection
