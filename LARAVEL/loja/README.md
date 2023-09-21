@@ -6,4 +6,4 @@ Aqui no Readme você verá também a evolução de algumas partes do projeto, co
 
 ### Diagrama de casos 1
 
-<img src="yimgs/">
+<img src="yimg/DIAGRA-LOJA-1.png">
