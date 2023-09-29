@@ -24,7 +24,6 @@ class ClientController extends Controller
 
     public function show(int $id)
     {
-        print_r('to aq2');
 
         $client = Client::find($id);
         return view('clients.show', [
